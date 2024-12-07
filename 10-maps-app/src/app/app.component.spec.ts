@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title '10-maps-app'`, () => {
+  it(`should have as title 'mapsApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('10-maps-app');
+    expect(app.title).toEqual('mapsApp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, 10-maps-app');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('mapsApp app is running!');
   });
 });
