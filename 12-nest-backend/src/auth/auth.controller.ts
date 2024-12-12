@@ -38,7 +38,7 @@ export class AuthController {
     const user = req['user'] as User;
     return {
       user,
-      token: this.authService.getJwtPayload({ id: user._id })
+      token: this.authService.getJwToken({ id: user._id })
     }
   }
 

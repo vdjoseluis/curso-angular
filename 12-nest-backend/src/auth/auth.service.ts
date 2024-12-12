@@ -45,7 +45,7 @@ export class AuthService {
 
     return {
       user: user,
-      token: this.getJwtPayload({ id: user._id })
+      token: this.getJwToken({ id: user._id })
     }
   }
 
@@ -63,7 +63,7 @@ export class AuthService {
 
     return {
       user: rest,
-      token: this.getJwtPayload({ id: user.id })
+      token: this.getJwToken({ id: user.id })
     }
   }
 
@@ -90,7 +90,7 @@ export class AuthService {
     return `This action removes a #${id} auth`;
   }
 
-  getJwtPayload(payload: JwtPayload) {
+  getJwToken(payload: JwtPayload) {
     const token = this.jwtService.sign(payload);
     return token;
   }
