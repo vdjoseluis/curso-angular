@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pro-01-zoneless-calculator": {
+    "pokemon-ssr": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,10 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pro-01-zoneless-calculator",
+            "outputPath": "dist/pokemon-ssr",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -57,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pro-01-zoneless-calculator:build:production"
+              "buildTarget": "pokemon-ssr:build:production"
             },
             "development": {
-              "buildTarget": "pro-01-zoneless-calculator:build:development"
+              "buildTarget": "pokemon-ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +73,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
