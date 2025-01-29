@@ -5,7 +5,11 @@
 /tmp
 /out-tsc
 /bazel-out
+<<<<<<< HEAD
 /src/environments/*.*
+=======
+/src/environments
+>>>>>>> 459715b (Update github token)
 
 # Node
 /node_modules
