@@ -6,10 +6,14 @@
 /out-tsc
 /bazel-out
 <<<<<<< HEAD
+<<<<<<< HEAD
 /src/environments/*.*
 =======
 /src/environments
 >>>>>>> 459715b (Update github token)
+=======
+/src/environments
+>>>>>>> 94dcc9d78f0ef6191406818b6dda28603854f41b
 
 # Node
 /node_modules
