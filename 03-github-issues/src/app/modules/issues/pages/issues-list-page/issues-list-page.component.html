@@ -1,1 +1,33 @@
-<p>issues-list-page works!</p>,
+<h1>GitHub Issues</h1>
+<div class="my-5 border-b-2 border-blue-600"></div>
+<section class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+  <div class="flex flex-col col-span-3">
+    <!-- Botones para controlar el Estado (State) -->
+    <div class="flex gap-2">
+      <button class="btn active">All</button>
+      <button class="btn">Open</button>
+      <button class="btn">Closed</button>
+    </div>
+  </div>
+
+  <!-- Listado -->
+  <div class="mt-4 flex flex-col col-span-2">
+    <a [routerLink]="['/issue/123']" >Ir a issue 123</a>
+    <!-- TODO: Listado de issues -->
+
+    <!-- TODO: Spinner -->
+
+    <!-- TODO: Si no hay issues por el filtro -->
+  </div>
+
+  <!-- Labels -->
+   <div>
+    @if (labelsQuery.isLoading()) {
+      <p>Loading...</p>
+    } @else {
+      <issues-labels-selector [labels]="labelsQuery.data() ?? []"/>
+    }
+
+    <!-- TODO: Label Selector -->
+   </div>
+</section>
