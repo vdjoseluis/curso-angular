@@ -15,7 +15,7 @@ export const getLabels = async(): Promise<GitHubLabel[]> => {
     });
     if (!resp.ok) throw "Cant't load labels";
     const labels: GitHubLabel[] = await resp.json() ;
-    console.log({labels});
+    //console.log({labels});
     return labels;
   } catch (error) {
 throw "Cant't load labels";
