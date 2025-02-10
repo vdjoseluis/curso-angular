@@ -1,40 +1,61 @@
 <h1>GitHub Issues</h1>
-<div class="my-5 border-b-2 border-blue-600"></div>
+<dir class="my-5 border-b-2 border-blue-600"></dir>
+
 <section class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+  <!-- Botones para controlar el Estado (State) -->
+
   <div class="flex flex-col col-span-3">
-    <!-- Botones para controlar el Estado (State) -->
     <div class="flex gap-2">
-      <button class="btn active">All</button>
-      <button class="btn">Open</button>
-      <button class="btn">Closed</button>
+      <button
+        [class.active]="issuesService.selectedState() === 'all'"
+        class="btn"
+        (click)="onChangeState('all')"
+      >
+        All
+      </button>
+      <button
+        [class.active]="issuesService.selectedState() === 'open'"
+        class="btn"
+        (click)="onChangeState('open')"
+      >
+        Open
+      </button>
+      <button
+        [class.active]="issuesService.selectedState() === 'closed'"
+        class="btn"
+        (click)="onChangeState('closed')"
+      >
+        Closed
+      </button>
     </div>
   </div>
 
   <!-- Listado -->
   <div class="mt-4 flex flex-col col-span-2">
-    
+    <!-- Todo: Listado de issues -->
     @for (issue of issuesQuery.data(); track issue.id) {
-      <issue-item [issue]="issue" />
-    } @empty { @if
-    (issuesQuery.isLoading()) {
-    <p>Loading issues...</p>
+
+    <issue-item [issue]="issue" />
+
+    } @empty { @if( issuesQuery.isLoading() ) {
+    <p>Cargando issues</p>
     } @else {
-    <p>No hay issues</p>
+    <p>No hay issues que mostrar</p>
     } }
 
-    <!-- TODO: Spinner -->
+    <!-- Todo: Spinner -->
 
-    <!-- TODO: Si no hay issues por el filtro -->
+    <!-- Todo: Si no hay issues por el filtro -->
   </div>
 
   <!-- Labels -->
   <div>
-    @if (labelsQuery.isLoading()) {
-    <p>Loading...</p>
+    @if( labelsQuery.isLoading() ) {
+    <p>Estamos cargando</p>
     } @else {
     <issues-labels-selector [labels]="labelsQuery.data() ?? []" />
     }
 
-    <!-- TODO: Label Selector -->
+    <!-- Todo: Label Selector -->
   </div>
 </section>
