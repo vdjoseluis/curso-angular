@@ -10,7 +10,7 @@ export const getIssueByNumber = async (
 ): Promise<GitHubIssue> => {
   console.log('GetIssue by number called');
 
-  await sleep(1500);
+  //await sleep(1500);
 
   try {
     // const resp = await fetch(`${BASE_URL}/issues/${issueNumber}/comments`, {
@@ -26,6 +26,6 @@ export const getIssueByNumber = async (
 
     return issue;
   } catch (error) {
-    throw "Can't load issue";
+    throw `Can't load issue ${issueNumber}`;
   }
 };

@@ -6,7 +6,7 @@ const BASE_URL= environment.baseUrl;
 const GITHUB_TOKEN= environment.gitHubToken;
 
 export const getIssueCommentsByNumber = async(issueNumber:string): Promise<GitHubIssue[]> => {
-  await sleep(1500);
+  //await sleep(1500);
   try {
     const resp = await fetch(`${BASE_URL}/issues/${issueNumber}/comments`, {
       headers: {
@@ -17,6 +17,6 @@ export const getIssueCommentsByNumber = async(issueNumber:string): Promise<GitHu
     const issues: GitHubIssue[] = await resp.json() ;
     return issues;
   } catch (error) {
-throw "Cant't load issues";
+throw "Can't load issues";
   }
 }
