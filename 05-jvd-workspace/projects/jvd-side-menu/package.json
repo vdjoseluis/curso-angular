@@ -1,6 +1,21 @@
 {
   "name": "jvd-side-menu",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vdjoseluis/curso-angular/tree/main/05-jvd-workspace/projects/jvd-side-menu"
+  },
+  "author": "José Luis Vásquez Drouet",
+  "bugs": {
+    "url": "https://github.com/vdjoseluis/curso-angular/issues"
+  },
+  "keywords": [
+    "angular",
+    "side-menu",
+    "side-menu-item"
+  ],
+  "license": "MIT",
+  "homepage": "",
   "peerDependencies": {
     "@angular/common": "^19.1.0",
     "@angular/core": "^19.1.0"
