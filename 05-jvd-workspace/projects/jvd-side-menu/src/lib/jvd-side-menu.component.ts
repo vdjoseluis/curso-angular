@@ -3,10 +3,17 @@ import { Component, input, output } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 export enum TitleColor {
+<<<<<<< HEAD
   red = 'text-red-500',
   green = 'text-green-500',
   blue = 'text-blue-500',
   purple = 'text-purple-500'
+=======
+  red= 'text-red-500',
+  green= 'text-green-500',
+  blue= 'text-blue-500',
+  purple= 'text-purple-500'
+>>>>>>> 6637028 (Create new project for deploy as npm package)
 }
 
 @Component({
