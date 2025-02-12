@@ -41,13 +41,28 @@ app.use(
  * Handle all other requests by rendering the Angular application.
  */
 app.use('/**', (req, res, next) => {
+  // Obtener las cookies del request
+  const cookies = req.headers.cookie ?? ''; // 'lang=es; another=cookie'
+  const langCookie = cookies.split(';').find((cookie) => cookie.includes('lang')) ?? 'lang=en';
+  const [, lang] = langCookie.split('='); // Extraer el valor del idioma
+
+  console.log('Idioma detectado desde la cookie:', lang);
+
   angularApp
-    .handle(req)
+    .handle(req, {
+      providers: [
+        {
+          provide: 'SERVER_LANG_TOKEN',
+          useValue: lang, // Pasamos el idioma como proveedor
+        },
+      ],
+    })
     .then((response) =>
       response ? writeResponseToNodeResponse(response, res) : next(),
     )
     .catch(next);
 });
+
 
 /**
  * Start the server if this module is the main entry point.
