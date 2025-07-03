@@ -1,4 +1,4 @@
-import { inject, Injectable, InjectionToken, signal } from '@angular/core';
+import { effect, inject, Injectable, InjectionToken, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SsrCookieService } from 'ngx-cookie-service-ssr';
 
@@ -12,11 +12,12 @@ export class LanguageService {
   translate = inject(TranslateService);
 
   langServer = inject(SERVER_LANG_TOKEN, { optional: true });
-  currentLang = signal(this.langServer ?? 'en');
+
+  currentLang = signal(this.cookie.get('lang') ?? 'en');
 
   changeLang(lang: string) {
     this.cookie.set('lang', lang);
-    console.log({ lang });
+
     this.translate.setDefaultLang(lang);
 
     this.translate.use(lang);

@@ -42,9 +42,9 @@ app.use(
  */
 app.use('/**', (req, res, next) => {
   // Obtener las cookies del request
-  const cookies = req.headers.cookie ?? ''; // 'lang=es; another=cookie'
+  const cookies = req.headers.cookie ?? '';
   const langCookie = cookies.split(';').find((cookie) => cookie.includes('lang')) ?? 'lang=en';
-  const [, lang] = langCookie.split('='); // Extraer el valor del idioma
+  const [, lang] = langCookie.split('=');
 
   console.log('Idioma detectado desde la cookie:', lang);
 
@@ -53,7 +53,7 @@ app.use('/**', (req, res, next) => {
       providers: [
         {
           provide: 'SERVER_LANG_TOKEN',
-          useValue: lang, // Pasamos el idioma como proveedor
+          useValue: lang, 
         },
       ],
     })
