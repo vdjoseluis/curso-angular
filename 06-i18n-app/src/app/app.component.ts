@@ -20,12 +20,17 @@ export class AppComponent {
   constructor(
     @Optional()
     @Inject(SERVER_LANG_TOKEN)
+<<<<<<< HEAD
     langServer: string
   ) {
     const lang =
       langServer ??
       (this.cookie.check('lang') ? this.cookie.get('lang') : 'en');
 
+=======
+    langServer: string) {
+     const lang= langServer ?? (this.cookie.check('lang') ? this.cookie.get('lang') : 'en');
+>>>>>>> 78799ae24ae5bb947d1c7ae13f47a049a87747b9
     this.languageService.changeLang(lang);
   }
 }
